@@ -17,17 +17,17 @@ class BusinessLogicLayer {
     }
 
     suspend fun doSomeHeavyWorkWithResult2(): Int {
-        delay(120)
-        return 1
+        delay(130)
+        return 2
     }
 
     suspend fun doSomeHeavyWorkWithResult3(): Int {
-        delay(120)
-        return 1
+        delay(140)
+        return 3
     }
 
     suspend fun doSomeHeavyWorkWithResult4(): Int {
-        delay(120)
-        return 1
+        delay(150)
+        return 4
     }
 }

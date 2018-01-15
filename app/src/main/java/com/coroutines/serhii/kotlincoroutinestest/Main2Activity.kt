@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.coroutines.serhii.coroutinesexequtor.asyncUI
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.coroutines.experimental.delay
 import kotlin.system.measureTimeMillis
 
 class Main2Activity : AppCompatActivity() {
@@ -37,8 +36,8 @@ class Main2Activity : AppCompatActivity() {
                     //this call will be executed in UI thread context
                     println("result is $number ${someTask1.await()},${someTask.await()},${someTask2.await()}")
                 }
-                //total time should be near max delay time of all 3 calls
-                println("with total time of : $measureTimeMillis")
+                //total time should be near the sum of first call time and max delay time of  other 3 calls
+                println("result with total time of : $measureTimeMillis")
             }
         }
     }
