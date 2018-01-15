@@ -1,1 +1,1 @@
-include ':app', ':coroutinesexequtor'
+include ':app', ':LifecycleAwareCoroutine'

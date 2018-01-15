@@ -8,7 +8,6 @@ import android.util.Log
 import com.coroutines.serhii.coroutinesexequtor.asyncUI
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.coroutines.experimental.delay
 
 class MainActivity : AppCompatActivity() {
 

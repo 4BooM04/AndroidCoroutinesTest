@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KotlinCoroutinesTest.iml" filepath="$PROJECT_DIR$/KotlinCoroutinesTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidCoroutinesTest.iml" filepath="$PROJECT_DIR$/AndroidCoroutinesTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LifecycleAwareCoroutine/LifecycleAwareCoroutine.iml" filepath="$PROJECT_DIR$/LifecycleAwareCoroutine/LifecycleAwareCoroutine.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/coroutinesexequtor/coroutinesexequtor.iml" filepath="$PROJECT_DIR$/coroutinesexequtor/coroutinesexequtor.iml" />
     </modules>

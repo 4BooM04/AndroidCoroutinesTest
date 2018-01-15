@@ -1,0 +1,3 @@
+[submodule "LifecycleAwareCoroutine"]
+	path = LifecycleAwareCoroutine
+	url = git@github.com:4BooM04/LifecycleAwareCoroutine.git
