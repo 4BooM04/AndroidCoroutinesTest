@@ -15,26 +15,29 @@ class Main2Activity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            asyncUI { // this task will autoCancel on On_DESTROY event
+            asyncUI {
+                // this task will autoCancel on On_DESTROY event
                 val measureTimeMillis = measureTimeMillis {
+                    //this call will block coroutine till gain current result
                     val number = asyncNow {
-                        delay(100)
-                        100
+                        //this call will be executed in background thread context
+                        BusinessLogicLayer().doSomeHeavyWorkWithResult1()
                     }
                     val someTask = promice {
-                        delay(120)
-                        200
+                        BusinessLogicLayer().doSomeHeavyWorkWithResult2()
                     }
                     val someTask1 = promice {
-                        delay(130)
-                        150
+                        BusinessLogicLayer().doSomeHeavyWorkWithResult3()
+
                     }
                     val someTask2 = promice {
-                        delay(50)
-                        140
+                        BusinessLogicLayer().doSomeHeavyWorkWithResult4()
                     }
+                    //this call will block coroutine while all of 3 other results will be available
+                    //this call will be executed in UI thread context
                     println("result is $number ${someTask1.await()},${someTask.await()},${someTask2.await()}")
                 }
+                //total time should be near max delay time of all 3 calls
                 println("with total time of : $measureTimeMillis")
             }
         }

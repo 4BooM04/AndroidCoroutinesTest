@@ -1,5 +1,9 @@
 package com.coroutines.serhii.kotlincoroutinestest
 
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
+import kotlinx.coroutines.experimental.runBlocking
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -10,8 +14,20 @@ import org.junit.Assert.*
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 class ExampleUnitTest {
+    //default test case
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun checkLogicFlow() {
+        runBlocking() {
+            val doSomeHeavyWorkResult = BusinessLogicLayer().doSomeHeavyWorkWithResult()
+            assertEquals(100, doSomeHeavyWorkResult)
+        }
+    }
+    //use this test way to test suspend function with only bg available operations
+    @Test
+    fun checkNetworkCall() {
+        runBlocking() {
+            val networkCallResult = async(CommonPool) { BusinessLogicLayer().doSomeHeavyWorkWithResult() }.await()
+            assertEquals(100, networkCallResult)
+        }
     }
 }

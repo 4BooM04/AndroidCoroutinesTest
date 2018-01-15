@@ -10,7 +10,7 @@ import kotlinx.coroutines.experimental.*
 /**
  * Created by Serhii Chaban sc@madappgang.com on 26.11.17.
  */
-fun LifecycleOwner.asyncUI(block: suspend LifeCycleAwareCoroutine.() -> Unit) = LifeCycleAwareCoroutine().apply {
+fun LifecycleOwner.asyncUI(block: suspend LifecycleAwareCoroutine.() -> Unit) = LifecycleAwareCoroutine().apply {
     job = asyncUi(
             block = {
                 block(this)
@@ -24,7 +24,7 @@ fun LifecycleOwner.asyncUI(block: suspend LifeCycleAwareCoroutine.() -> Unit) = 
     }
 }
 
-class LifeCycleAwareCoroutine : LifecycleObserver {
+class LifecycleAwareCoroutine : LifecycleObserver {
     lateinit var job: Job
     var cancelEvent: Lifecycle.Event = Lifecycle.Event.ON_DESTROY
     fun asyncUi(block: suspend () -> Unit, onCancel: () -> Unit): Job {

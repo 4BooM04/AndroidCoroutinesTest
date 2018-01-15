@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
             asyncUI {
                 cancelEvent = Lifecycle.Event.ON_STOP
                 val a = asyncNow {
-                    delay(5000)
-                    100
+                    BusinessLogicLayer().doSomeHeavyWorkWithResult()
                 }
                 helloWorldText.text = "result is $a"
                 startActivity(Intent(this@MainActivity, Main2Activity::class.java))
@@ -30,4 +29,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
